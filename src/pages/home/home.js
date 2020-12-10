@@ -11,7 +11,6 @@ import  'echarts/lib/chart/pie';
 import 'echarts/lib/component/tooltip';
 import 'echarts/lib/component/title';
 import 'echarts/lib/component/legend';
-
 import './home.less'
 import Crumbs from './../../components/crumbs/crumbs'
 class Home extends React.Component {
