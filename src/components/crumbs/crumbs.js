@@ -14,12 +14,15 @@ class Crumbs extends React.Component {
     };
     componentDidMount() {
         this.request();
-        setInterval(() => {
+        this.interval = setInterval(() => {
            let sysTime = NewDate.formateDate(new Date().getTime());
            this.setState({
                 sysTime
             })
         },1000);
+    };
+    componentWillUnmount() {
+        clearInterval(this.interval);
     };
     request = () => {
         location().then(res =>{

@@ -27,7 +27,8 @@ class navigation extends React.Component {
                 </SubMenu>
                )
             }
-            return  <Menu.Item className="menuitem" key={item.key} ><NavLink to={item.key}>{item.title}</NavLink></Menu.Item>
+            // 重复点击同一个路由组件， 数据不刷新， 会有警告 replace这个很好的解决了这个问题
+            return  <Menu.Item className="menuitem" key={item.key} ><NavLink to={item.key} replace>{item.title}</NavLink></Menu.Item>
         })
     }
     render() {
