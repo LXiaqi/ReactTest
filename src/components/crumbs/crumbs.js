@@ -42,7 +42,7 @@ class Crumbs extends React.Component {
         return (
             <Card className="card">
                 <Breadcrumb className="crumb">
-                    <Breadcrumb.Item>首页 /</Breadcrumb.Item>
+                    <Breadcrumb.Item>首页 </Breadcrumb.Item>
                 </Breadcrumb>
                 <div className="crumb_right">
                     <span>{this.state.sysTime} &nbsp;&nbsp;&nbsp;&nbsp;</span>
