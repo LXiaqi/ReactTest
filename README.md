@@ -71,9 +71,10 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 
 ### 记录bug
 
-1:重复点击同一个路由文件页面数据不刷新还会有警告，在NavLink中加上replace，可以有效的解决
+1：重复点击同一个路由文件页面数据不刷新还会有警告，在NavLink中加上replace，可以有效的解决
 
-2:echarts的使用：
+2：echarts的使用：
+
                     import echarts from 'echarts/lib/echarts'; // 主模块
                     
                     import  'echarts/lib/chart/bar'; // 柱状图
@@ -85,5 +86,5 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
                     import 'echarts/lib/component/tooltip'; 
 
                     import 'echarts/lib/component/title'; // 标题
-                    
+
                     import 'echarts/lib/component/legend'; // legend

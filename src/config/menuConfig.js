@@ -10,6 +10,10 @@ const menuList =  [
             {
                 title:'按钮',
                 key:'/admin/Ui/buttons'
+            },
+            {
+                title:'地图',
+                key:'/admin/Ui/maps'
             }
         ]
     },
