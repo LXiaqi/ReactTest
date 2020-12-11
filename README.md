@@ -88,3 +88,13 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
                     import 'echarts/lib/component/title'; // 标题
 
                     import 'echarts/lib/component/legend'; // legend
+
+
+3：页面刷新之后默认选中的侧边栏目会回到首页， 内容却是刷新之前的内容页面：
+
+
+                    解决方法：selectedKeys 获取当前页面路由设置左侧菜单选中数组
+
+                    这样解决如果刷新之前选中的是二级菜单那么刷新之后二级菜单会被折叠
+
+                    解决方式：暂时未解决

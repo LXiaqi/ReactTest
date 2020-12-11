@@ -9,15 +9,16 @@ class navigation extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-          
+
         }
     };
     componentDidMount() {
         const menuThreeNode = this.renderMenu(MenuConfig);  
         this.setState({
-            menuThreeNode
+            menuThreeNode,
         })
-    }
+    };
+ 
     renderMenu = (data) => {
         return data.map((item) => {
             if(item.children) {
@@ -30,7 +31,8 @@ class navigation extends React.Component {
             // 重复点击同一个路由组件， 数据不刷新， 会有警告 replace这个很好的解决了这个问题
             return  <Menu.Item className="menuitem" key={item.key} ><NavLink to={item.key} replace>{item.title}</NavLink></Menu.Item>
         })
-    }
+    };
+
     render() {
         return (
             <div className="menu">
@@ -41,7 +43,8 @@ class navigation extends React.Component {
                 <div style={{ width: 200 }}>
                     <Menu
                         className="menubox"
-                        defaultSelectedKeys={['/admin/home']}
+                        defaultSelectedKeys={[window.location.hash.substr(1)]}
+                        selectedKeys={[window.location.hash.substr(1)]}
                         mode="inline"
                         theme="dark"
                     >
