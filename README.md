@@ -1,3 +1,74 @@
+### React 项目搭建
+
+    1：创建react项目工程 命令 create-react-app myapp
+
+    2: 暴露webpack配置，下载插件，命令  yarn eject  
+
+    3：下载less， 命令 yarn add less less-loader -D
+
+    4：配置less， 暴露出webpack配置之后， 打开webpack.config.js 文件
+
+                （1） 找到样式正则配置 style files regexes
+
+                （2） 在样式正则部分添加less正则：  
+
+                                                const lessRegex = /\.less$/;
+
+                                                const lessModuleRegex = /\.module\.less$/; 
+
+                                                在114行的位置添加： {
+                                                                        loader: require.resolve('less-loader'),
+                                                                    },
+
+                (3)   找到sassRegex;sassModuleRegex 等相关配置下面添加：
+
+
+                                                 {
+                                                    test: lessRegex,
+                                                    exclude: lessModuleRegex,
+                                                    use: getStyleLoaders(
+                                                        {
+                                                        importLoaders: 2,
+                                                        sourceMap: isEnvProduction
+                                                            ? shouldUseSourceMap
+                                                            : isEnvDevelopment,
+                                                        },
+                                                        'less-loader'
+                                                    ),
+                                                    
+                                                    sideEffects: true,
+                                                    },               
+                                                    {
+                                                    test: lessModuleRegex,
+                                                    use: getStyleLoaders(
+                                                        {
+                                                        importLoaders: 2,
+                                                        sourceMap: isEnvProduction
+                                                            ? shouldUseSourceMap
+                                                            : isEnvDevelopment,
+                                                        modules: {
+                                                            getLocalIdent: getCSSModuleLocalIdent,
+                                                        },
+                                                        },
+                                                        'less-loader'
+                                                    ),
+                                                    },
+    
+    5: 下载Ui 框架：这里是使用Antd移动端的， 下载命令 yarn add antd --save
+
+    6：为了提高性能节约资源， 实现UI框架组件的按需引入，下载按需引入的插件 yarn add babel-plugin-import --save-dev （npm i -D @babel/core）
+
+    7：如果遇到报错， 很可能是版本不一致的导致的， 解决方案：不要使用yarn，卸载npm un babel-core，重装npm i -D @babel/core
+
+    8：按需引入组件的配置， 打开webpack.config.js 找到 js 的正则部分  Process application JS with Babel.下面的 plugins 下面添加一个配置数组  
+                                                   
+                                                   
+            ['import',{
+                  libraryName:'antd',
+                  style:true
+            }],
+
+    9： 下载常用插件，以及路由等， yarn add axios    yarn add react-router-dom
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
