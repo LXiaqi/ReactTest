@@ -61,8 +61,7 @@
     7：如果遇到报错， 很可能是版本不一致的导致的， 解决方案：不要使用yarn，卸载npm un babel-core，重装npm i -D @babel/core
 
     8：按需引入组件的配置， 打开webpack.config.js 找到 js 的正则部分  Process application JS with Babel.下面的 plugins 下面添加一个配置数组  
-                                                   
-                                                   
+                                                                                      
             ['import',{
                   libraryName:'antd',
                   style:true
