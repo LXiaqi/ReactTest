@@ -37,7 +37,7 @@ class navigation extends React.Component {
         return (
             <div className="menu">
                 <div className="logo">
-                    <img src={logo} alt="" />
+                    <img className="App-logo" src={logo} alt="" alt="logo" />
                     <p>ReactTest</p>
                 </div>
                 <div style={{ width: 200 }}>
