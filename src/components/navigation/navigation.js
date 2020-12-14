@@ -35,9 +35,9 @@ class navigation extends React.Component {
 
     render() {
         return (
-            <div className="menu">
+            <div className="menus">
                 <div className="logo">
-                    <img className="App-logo" src={logo} alt="" alt="logo" />
+                    <img className="App_logo" src={logo} alt="" alt="logo" />
                     <p>ReactTest</p>
                 </div>
                 <div style={{ width: 200 }}>

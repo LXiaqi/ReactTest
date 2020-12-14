@@ -17,5 +17,10 @@ const menuList =  [
             }
         ]
     },
+    {
+        title:'手机归属地',
+        key:'/admin/phone',
+       
+    },
 ]
  export default menuList

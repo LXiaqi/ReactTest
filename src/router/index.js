@@ -6,6 +6,7 @@ import Admin from '../pages/admin/admin'
 import Buttons from './../pages/ui/buttons/button'
 import Home from './../pages/home/home'
 import Maps from './../pages/ui/map/map'
+import LocationPhone from './../pages/locationPhone/phone'
  class IRouter extends React.Component {
      render() {
          return (
@@ -18,6 +19,7 @@ import Maps from './../pages/ui/map/map'
                                 <Route path='/admin/home'  component={Home}></Route>
                                 <Route path='/admin/Ui/buttons'  component={Buttons}></Route>
                                 <Route path='/admin/Ui/maps'  component={Maps}></Route>
+                                <Route path='/admin/phone'  component={LocationPhone}></Route>
                             </Admin>
                         } ></Route>
                     </Switch>
