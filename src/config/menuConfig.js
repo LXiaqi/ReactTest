@@ -19,5 +19,10 @@ const menuList =  [
         key:'/admin/phone',
        
     },
+    {
+        title:'快递查询',
+        key:'/admin/searchExpress',
+       
+    },
 ]
  export default menuList
