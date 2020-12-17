@@ -14,7 +14,7 @@ class searchExpress extends React.Component {
             expressname:'',
             expresstype:'',
             expressltime:'',
-            expressnum:''
+            expressnum:'',
         }
     };
     // 输入框的change 事件， 获取val
@@ -27,22 +27,26 @@ class searchExpress extends React.Component {
     SearchExpress() {
         express(this).then(res => {
         console.log(res.data.result.list);
-        // let switchtype =()=> {
-        //     switch (res.data.result.deliverystatus) {
-        //         case 1:
-        //           return <h4>派送中</h4>;
-        //           break;
-        //         case 0:
-        //           return <h4>已签收</h4>;
-        //           break;
-        //         default:
-        //           return null;
-        //       }
-        // }
+        let switchtype;
+            switch (res.data.result.deliverystatus) {
+             case "1":
+            switchtype = "在途中";
+            break;
+             case "2":
+            switchtype = "派件中";
+            break;
+             case "3":
+            switchtype = "已签收";
+            break;
+             case "3":
+            switchtype = "包裹异常";  
+            break;
+            } 
         this.setState({
+            length:res.data.result.list.length,
             expresslogo:res.data.result.logo,
             expressname:res.data.result.expName,
-            // expresstype:switchtype,
+            expresstype:switchtype,
             expressltime:res.data.result.updateTime,
             expressnum:res.data.result.number
         })
@@ -68,21 +72,21 @@ class searchExpress extends React.Component {
                     <Input onChange={this.IptNum} value={this.state.searchNum} className="ipt_express" placeholder="请输入快递单号" />
                     <Button className="btn_search" type="primary" onClick={() => this.SearchExpress()}>搜索</Button>
                 </Card>
-                <Card className='result_content'>
-                    <div>
-                        <div><img src={this.state.expresslogo} alt="logo"/></div>
-                        <div>
-                           
-                            <span>{this.state.expressname}</span>
-                            <span>快递单号：{this.state.expressnum}</span>
-                            <span>更新时间：{this.state.expressltime}</span>
+                {this.state.length === 0 ? '' : <Card className='result_content'>
+                    <div className="expressinfo">
+                        <div className="expressLeft"><img src={this.state.expresslogo} alt="logo"/></div>
+                        <div className="expressRight">
+                            <h4>{this.state.expresstype}</h4>
+                            <span>{this.state.expressname}&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                            <span>快递单号：{this.state.expressnum}&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                            <span>更新时间：{this.state.expressltime}&nbsp;&nbsp;&nbsp;&nbsp;</span>
                         </div>
                     </div>
                     <Divider />
-                    <Steps progressDot current={this.state.length} direction="vertical">
+                    <Steps progressDot current={0} direction="vertical">
                        {this.state.stepsResult}
                     </Steps>
-                </Card>
+                </Card>}
             </div>
         )
     }

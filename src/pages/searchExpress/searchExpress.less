@@ -13,5 +13,23 @@
     .result_content {
         margin: 20px;
         height: 560px;
+        overflow-y: auto;
+        white-space: nowrap;
+        .expressinfo {
+            text-align: left;
+            .expressLeft {
+                display: inline-block;
+                margin: 0 20px;
+                vertical-align: middle;
+            }
+            .expressRight {
+                display: inline-block;
+                color: #ccc;
+                vertical-align: middle;
+                h4 {
+                    font-weight: 700;
+                }
+            }
+        }
     }
 }
