@@ -24,5 +24,10 @@ const menuList =  [
         key:'/admin/searchExpress',
        
     },
+    {
+        title:'狗狗大全',
+        key:'/admin/DogMore',
+       
+    },
 ]
  export default menuList
