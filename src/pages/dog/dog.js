@@ -2,13 +2,15 @@ import React from 'react';
 import './dog.less'
 import { dog } from './../../api/dog'
 import Crumbs from './../../components/crumbs/crumbs';
-import { Card, Input, Button, Table, Tag, Space } from 'antd';
+import { Card, Input, Button, Table, Image } from 'antd';
 class DogMore extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
             dogName: '',
             dogList:[],
+            loading:false,
+            pagination:{}
         }
     };
     // 输入框的change 事件， 获取val
@@ -21,14 +23,25 @@ class DogMore extends React.Component {
     SearchExpress() {
         this.doginfo();
     };
+    // 重置按钮
+    Reset() {
+        this.setState({
+            dogName:''
+        });
+        this.doginfo();
+    }
     componentDidMount() {
            this.doginfo();
     };
     doginfo() {
+        this.setState({
+            loading: true
+        })
         dog(this).then(res => {
             console.log(res);
             this.setState({
-                dogList:res.data.result.petFamilyList
+                dogList:res.data.result.petFamilyList,
+                loading: false
             })
         });
     }
@@ -60,8 +73,8 @@ class DogMore extends React.Component {
             {
                 align: 'center',
                 title: '宠物照片',
-                dataIndex: ' coverURL',
-                render: (src) => <img src={src} alt="" className="avatar_mini" />
+                dataIndex: 'coverURL',
+                render: (src) => <Image src={src} alt="" className="avatar_mini" />
             },
 
         ];
@@ -72,8 +85,9 @@ class DogMore extends React.Component {
                 <Card className="dogSearch">
                     <Input onChange={this.IptNum} value={this.state.dogName} className="ipt_dog" placeholder="请输入关键字" />
                     <Button className="btn_search" type="primary" onClick={() => this.SearchExpress()}>搜索</Button>
+                    <Button className="btn_search"  onClick={() => this.Reset()}>重置</Button>
                 </Card>
-                <Card> <Table columns={columns} dataSource={this.state.dogList} rowKey={row => row.petID} /></Card>
+                <Card> <Table columns={columns}  loading={this.state.loading} dataSource={this.state.dogList} rowKey={row => row.petID} pagination={this.state.pagination} /></Card>
             </div>
         )
     }
