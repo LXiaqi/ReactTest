@@ -3,6 +3,7 @@ import './dog.less'
 import { dog } from './../../api/dog'
 import Crumbs from './../../components/crumbs/crumbs';
 import { Card, Input, Button, Table, Image } from 'antd';
+import untils from './../../utils/date'
 class DogMore extends React.Component {
     constructor(props) {
         super(props);
@@ -10,9 +11,12 @@ class DogMore extends React.Component {
             dogName: '',
             dogList:[],
             loading:false,
-            pagination:{}
+            pagination:{},
+            dogPage:1
         }
+      
     };
+
     // 输入框的change 事件， 获取val
     IptNum = (e) => {
         this.setState({
@@ -41,7 +45,14 @@ class DogMore extends React.Component {
             console.log(res);
             this.setState({
                 dogList:res.data.result.petFamilyList,
-                loading: false
+                loading: false,
+                pagination: untils.pageination(res.data.result, (current) => {
+                    console.log(current);
+                    this.setState({
+                        dogPage:current
+                    })
+                    this.doginfo();
+                })
             })
         });
     }

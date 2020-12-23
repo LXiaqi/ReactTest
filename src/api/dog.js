@@ -6,7 +6,7 @@ export async function dog(that) {
         apiKey:'R1XKVNl44310407d63859331be6c3a1016bdee987b85638',
         pageSize:3,
         keyword:that.state.dogName,
-        page:1
+        page:that.state.dogPage
     }
     const res = await axios.post('https://api.apishop.net/common/dogFamily/queryDogListByKeyword',qs.stringify(data));
     if(res.status === 200) {

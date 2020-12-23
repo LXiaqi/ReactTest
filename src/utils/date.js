@@ -8,11 +8,10 @@ export default {
             onChange:(current)=> {
                 callback(current);
             },
-            courrent:data.page,
             pageSize:10,
-            total:data.total_count,
+            total:data.totalCount,
             showTotal:()=> {
-                return `共${data.total_count}条`
+                return `共${data.totalCount}条`
             },
         }
     }
