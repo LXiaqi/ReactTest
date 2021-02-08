@@ -1,18 +1,51 @@
-.homecard {
-    margin: 20px;
-    height: 680px;
-    overflow-y: auto;
-    white-space: nowrap;
-    #main {
-        margin: auto;
-    }
-    #money {
-        margin: auto;
-    }
-    #pie {
-        margin: auto;
-
-    }
+.home_content {
+    .head_box {
+        width: 100%;
+        .totalCard {
+            width: 22%;
+            height: 182px;
+            display: inline-block;
+            margin: 0 1%;
+            border-radius: 4px;
+            .t_box {
+                text-align: left;
+                color: rgba(0,0,0,.45);
+                font-size: 14px;
+                line-height: 22px;
+               .icon_t {
+                   float: right;
+               }
+            }
+            .money {
+                font-weight: 600;
+                font-size: 30px;
+                text-align: left;
+                height: 38px;
+                line-height: 38px;
+                margin-top: 10px;
+            }
+            .trend {
+                text-align: left;
+                height: 38px;
+                line-height: 38px;
+                margin-top: 12px;
+                border-bottom: 1px solid #f0f0f0;
+                .last_span {
+                    margin-left: 30px;
+                }
+                .up {
+                    color: 	#FF4500;
+                }
+                .on {
+                    color: 	#32CD32;
+                }
+            }
+            .day_money {
+                text-align: left;
+                margin-top: 8px;
+            }
+        }
+ }
 }
 .homecard::-webkit-scrollbar {
     width: 0px;

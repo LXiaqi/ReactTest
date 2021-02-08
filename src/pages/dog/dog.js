@@ -2,7 +2,7 @@ import React from 'react';
 import './dog.less'
 import { dog } from './../../api/dog'
 import Crumbs from './../../components/crumbs/crumbs';
-import { Card, Input, Button, Table, Image } from 'antd';
+import { Card, Input, Button, Table, Image, message} from 'antd';
 import untils from './../../utils/date'
 class DogMore extends React.Component {
     constructor(props) {
@@ -42,18 +42,24 @@ class DogMore extends React.Component {
             loading: true
         })
         dog(this).then(res => {
-            console.log(res);
-            this.setState({
-                dogList:res.data.result.petFamilyList,
-                loading: false,
-                pagination: untils.pageination(res.data.result, (current) => {
-                    console.log(current);
-                    this.setState({
-                        dogPage:current
-                    })
-                    this.doginfo();
+            if(res.data.statusCode === '100002') {
+                this.setState({
+                    loading: false,
                 })
-            })
+                message.error(res.data.desc);
+            }else {
+                this.setState({
+                    dogList:res.data.result.petFamilyList,
+                    loading: false,
+                    pagination: untils.pageination(res.data.result.totalCount, (current) => {
+                        console.log(current);
+                        this.setState({
+                            dogPage:current
+                        })
+                        this.doginfo();
+                    })
+                })
+            }
         });
     }
     render() {

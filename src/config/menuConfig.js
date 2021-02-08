@@ -29,5 +29,10 @@ const menuList =  [
         key:'/admin/DogMore',
        
     },
+    {
+        title:'邮编查询',
+        key:'/admin/postCode',
+       
+    },
 ]
  export default menuList

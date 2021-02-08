@@ -7,7 +7,8 @@ import Home from './../pages/home/home'
 import Maps from './../pages/ui/map/map'
 import LocationPhone from './../pages/locationPhone/phone'
 import searchExpress from './../pages/searchExpress/searchExpress'
-import DogMore from './../pages/dog/dog'
+import DogMore from './../pages/dog/dog';
+import PostCode from './../pages/Postcode/Postcode'
  class IRouter extends React.Component {
      render() {
          return (
@@ -22,7 +23,7 @@ import DogMore from './../pages/dog/dog'
                                 <Route path='/admin/phone'  component={LocationPhone}></Route>
                                 <Route path='/admin/searchExpress'  component={searchExpress}></Route>
                                 <Route path='/admin/DogMore'  component={DogMore}></Route>
-
+                                <Route path='/admin/postCode'  component={PostCode}></Route>
                             </Admin>
                         } ></Route>
                     </Switch>

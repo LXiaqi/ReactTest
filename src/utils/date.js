@@ -3,15 +3,16 @@ export default {
         let date = new Date(time);
         return date.getFullYear()+ '-' + (date.getMonth()+1)+ '-' + date.getDate() + ' ' + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds()+' ';
     },
-    pageination(data,callback) {
+    pageination(totals,callback) {
         return {
             onChange:(current)=> {
+                console.log(current);
                 callback(current);
             },
             pageSize:10,
-            total:data.totalCount,
+            total:totals,
             showTotal:()=> {
-                return `共${data.totalCount}条`
+                return `共${totals}条`
             },
         }
     }

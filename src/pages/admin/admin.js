@@ -1,7 +1,7 @@
 import React from 'react';
 import { Layout } from 'antd';
 import Head from './../../components/header/header'
-import FooterContent from './../../components/footer/footer'
+// import FooterContent from './../../components/footer/footer'
 import Navigation from './../../components/navigation/navigation'
 import './admin.less';
 const { Header, Footer, Sider, Content } = Layout;
@@ -19,9 +19,9 @@ class Admin extends React.Component {
                     <Content>
                         {this.props.children}
                     </Content>
-                    <Footer>
+                    {/* <Footer>
                         <FooterContent />
-                    </Footer>
+                    </Footer> */}
                 </Layout>
             </Layout>
         )
