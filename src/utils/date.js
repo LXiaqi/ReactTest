@@ -6,7 +6,6 @@ export default {
     pageination(totals,callback) {
         return {
             onChange:(current)=> {
-                console.log(current);
                 callback(current);
             },
             pageSize:10,
